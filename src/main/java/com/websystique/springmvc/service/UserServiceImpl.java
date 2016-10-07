@@ -45,7 +45,9 @@ public class UserServiceImpl implements UserService{
     }
 
     public void saveUser(User user) {
+        UserRulesChecker checker = new UserRulesChecker();
         user.setId(counter.incrementAndGet());
+        checker.superUserCheck(user);
         users.add(user);
     }
 
