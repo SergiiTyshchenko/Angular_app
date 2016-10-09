@@ -1,12 +1,12 @@
 package com.websystique.springmvc.model;
 
-public class User {
+public class Request {
 
     private long id;
 
-    private String username;
+    private String requestor;
 
-    private String address;
+    private String description;
 
     private String email;
 
@@ -14,14 +14,14 @@ public class User {
 
     private String status;
 
-    public User(){
+    public Request(){
         id=0;
     }
 
-    public User(long id, String username, String address, String email, String assignee, String status){
+    public Request(long id, String requestor, String description, String email, String assignee, String status){
         this.id = id;
-        this.username = username;
-        this.address = address;
+        this.requestor = requestor;
+        this.description = description;
         this.email = email;
         this.assignee = assignee;
         this.status = status;
@@ -35,21 +35,19 @@ public class User {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getRequestor() {
+        return requestor;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setRequestor(String requestor) {
+        this.requestor = requestor;
     }
 
-    public String getAddress() {
-        return address;
+    public String getDescription() {
+        return description;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
+    public void setDescription(String description) { this.description = description; }
 
     public String getEmail() {
         return email;
@@ -81,9 +79,9 @@ public class User {
             return true;
         if (obj == null)
             return false;
-        if (!(obj instanceof User))
+        if (!(obj instanceof Request))
             return false;
-        User other = (User) obj;
+        Request other = (Request) obj;
         if (id != other.id)
             return false;
         return true;
@@ -91,7 +89,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User [id=" + id + ", username=" + username + ", address=" + address
+        return "Request [id=" + id + ", requestor=" + requestor + ", description=" + description
                 + ", email=" + email + "]";
     }
 
