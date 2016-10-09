@@ -76,9 +76,9 @@ public class UserServiceImpl implements UserService{
 
     private static List<User> populateDummyUsers(){
         List<User> users = new ArrayList<User>();
-        users.add(new User(counter.incrementAndGet(),"Sam", "NY", "sam@abc.com"));
-        users.add(new User(counter.incrementAndGet(),"Tomy", "ALBAMA", "tomy@abc.com"));
-        users.add(new User(counter.incrementAndGet(),"Kelly", "NEBRASKA", "kelly@abc.com"));
+        users.add(new User(counter.incrementAndGet(),"Sergii", "Create Jenkins unit test job", "sergantty@gmai.com", "Stas", ""));
+        users.add(new User(counter.incrementAndGet(),"Stas", "Introduce Ansible usage", "kronverk@hotmail.com", "Sergii", ""));
+        users.add(new User(counter.incrementAndGet(),"Dummy", "Summy task", "dummy_user@gmail.com", "whatever new", ""));
         return users;
     }
 

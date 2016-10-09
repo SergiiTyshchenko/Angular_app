@@ -10,15 +10,21 @@ public class User {
 
     private String email;
 
+    private String assignee;
+
+    private String status;
+
     public User(){
         id=0;
     }
 
-    public User(long id, String username, String address, String email){
+    public User(long id, String username, String address, String email, String assignee, String status){
         this.id = id;
         this.username = username;
         this.address = address;
         this.email = email;
+        this.assignee = assignee;
+        this.status = status;
     }
 
     public long getId() {
@@ -52,6 +58,14 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public String getAssignee() { return assignee; }
+
+    public void setAssignee(String assignee) { this.assignee = assignee; }
+
+    public String getStatus() { return status; }
+
+    public void setStatus(String status) { this.status = status; }
 
     @Override
     public int hashCode() {

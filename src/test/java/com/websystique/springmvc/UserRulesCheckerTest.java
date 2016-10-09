@@ -16,7 +16,7 @@ public class UserRulesCheckerTest {
         testuser.setUsername("Sergii");
         checker.superUserCheck(testuser);
         // Method to check
-        assertEquals("Should return country", "Ukraine", testuser.getAddress());
+        assertEquals("Should return current username", testuser.getUsername(), testuser.getAssignee());
     }
 
 }

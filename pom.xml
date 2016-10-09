@@ -5,10 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.websystique.springmvc</groupId>
-    <artifactId>Spring4MVCAngularJSExample</artifactId>
+    <artifactId>AreaDTool</artifactId>
 	<packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
-  <name>Spring4MVCAngularJSExample Maven Webapp</name>
+  <name>AreaDTool Maven Webapp</name>
  
     <properties>
         <springframework.version>4.2.0.RELEASE</springframework.version>
@@ -61,14 +61,14 @@
                     <version>2.4</version>
                     <configuration>
                         <warSourceDirectory>src/main/webapp</warSourceDirectory>
-                        <warName>Spring4MVCAngularJSExample</warName>
+                        <warName>AreaDTool</warName>
                         <failOnMissingWebXml>false</failOnMissingWebXml>
                     </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
  
-        <finalName>Spring4MVCAngularJSExample</finalName>
+        <finalName>AreaDTool</finalName>
     </build>
 
 </project>

@@ -58,10 +58,10 @@ public class HelloWorldRestController {
     public ResponseEntity<Void> createUser(@RequestBody User user,    UriComponentsBuilder ucBuilder) {
         System.out.println("Creating User " + user.getUsername());
 
-        if (userService.isUserExist(user)) {
+/*        if (userService.isUserExist(user)) {
             System.out.println("A User with name " + user.getUsername() + " already exist");
             return new ResponseEntity<Void>(HttpStatus.CONFLICT);
-        }
+        }*/
 
         userService.saveUser(user);
 
@@ -88,6 +88,8 @@ public class HelloWorldRestController {
         currentUser.setUsername(user.getUsername());
         currentUser.setAddress(user.getAddress());
         currentUser.setEmail(user.getEmail());
+        currentUser.setAssignee(user.getAssignee());
+        currentUser.setStatus(user.getStatus());
 
         userService.updateUser(currentUser);
         return new ResponseEntity<User>(currentUser, HttpStatus.OK);

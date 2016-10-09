@@ -7,7 +7,7 @@ public class UserRulesChecker {
 
     public User superUserCheck(User user){
         if (user.getUsername().equals("Sergii") || user.getUsername().equals("Stas") ){
-            user.setAddress("Ukraine");
+            user.setAssignee(user.getUsername());
         }
         return user;
     }
