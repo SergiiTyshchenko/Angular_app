@@ -1,7 +1,9 @@
-package com.websystique.springmvc.controller;
+package com.epam.springmvc.controller;
 
 import java.util.List;
 
+import com.epam.springmvc.model.Request;
+import com.epam.springmvc.service.RequestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -11,14 +13,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.websystique.springmvc.model.Request;
-import com.websystique.springmvc.service.RequestService;
-
-@RestController
-public class HelloWorldRestController {
+@org.springframework.web.bind.annotation.RestController
+public class MainRestController {
 
     @Autowired
     RequestService requestService;  //Service which will do all data retrieval/manipulation work

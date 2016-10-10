@@ -1,4 +1,4 @@
-package com.websystique.springmvc.model;
+package com.epam.springmvc.model;
 
 public class Request {
 

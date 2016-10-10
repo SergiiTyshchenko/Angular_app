@@ -1,7 +1,7 @@
-package com.websystique.springmvc.service;
+package com.epam.springmvc.service;
 
 
-import com.websystique.springmvc.model.Request;
+import com.epam.springmvc.model.Request;
 
 public class RequestRulesChecker {
 

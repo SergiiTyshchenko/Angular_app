@@ -1,11 +1,11 @@
-package com.websystique.springmvc.service;
+package com.epam.springmvc.service;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
-import com.websystique.springmvc.model.Request;
+import com.epam.springmvc.model.Request;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

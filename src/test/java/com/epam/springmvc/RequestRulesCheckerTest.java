@@ -1,7 +1,7 @@
-package com.websystique.springmvc;
+package com.epam.springmvc;
 
-import com.websystique.springmvc.model.Request;
-import com.websystique.springmvc.service.RequestRulesChecker;
+import com.epam.springmvc.model.Request;
+import com.epam.springmvc.service.RequestRulesChecker;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

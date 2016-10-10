@@ -1,4 +1,4 @@
-package com.websystique.springmvc.configuration;
+package com.epam.springmvc.configuration;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -11,8 +11,8 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "com.websystique.springmvc")
-public class HelloWorldConfiguration extends WebMvcConfigurerAdapter{
+@ComponentScan(basePackages = "com.epam.springmvc")
+public class MainConfiguration extends WebMvcConfigurerAdapter{
 
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {

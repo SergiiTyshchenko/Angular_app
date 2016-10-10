@@ -1,4 +1,4 @@
-package com.websystique.springmvc.configuration;
+package com.epam.springmvc.configuration;
 
 import java.io.IOException;
 import java.text.DateFormat;
