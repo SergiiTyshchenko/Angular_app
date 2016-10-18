@@ -1,0 +1,2 @@
+INSERT INTO requests VALUES (1, 'Sergii', 'Create Jenkins unit test job', 'sergantty@gmai.com', 'Stas', 'Open');
+INSERT INTO requests VALUES (2, 'Stas', 'Introduce Ansible usage', 'kronverk@hotmail.com', 'Sergii', 'Open');

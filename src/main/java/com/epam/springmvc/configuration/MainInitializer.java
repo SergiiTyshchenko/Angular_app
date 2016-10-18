@@ -1,6 +1,8 @@
 package com.epam.springmvc.configuration;
 
 import javax.servlet.Filter;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
@@ -8,12 +10,16 @@ public class MainInitializer extends AbstractAnnotationConfigDispatcherServletIn
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[] { MainConfiguration.class };
+        //return new Class[] { MainConfiguration.class };
+        return new Class[] { SpringRootConfiguration.class };
     }
 
     @Override
-    protected Class<?>[] getServletConfigClasses() {
+/*    protected Class<?>[] getServletConfigClasses() {
         return null;
+    }*/
+    protected Class<?>[] getServletConfigClasses() {
+        return new Class[] { MainConfiguration.class };
     }
 
     @Override
@@ -27,4 +33,12 @@ public class MainInitializer extends AbstractAnnotationConfigDispatcherServletIn
         return singleton;
     }
 
+    @Override
+    public void onStartup(ServletContext servletContext) throws ServletException {
+        super.onStartup(servletContext);
+        servletContext.setInitParameter("spring.profiles.active", "hsql");
+    }
 }
+
+
+
