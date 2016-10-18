@@ -33,7 +33,16 @@ public class MainRestController {
         return new ResponseEntity<List<Request>>(requests, HttpStatus.OK);
     }
 
+    //-------------------Retrieve All Requests--------------------------------------------------------
 
+    @RequestMapping(value = "/requests/", method = RequestMethod.GET)
+    public ResponseEntity<List<Request>> listAllDBRequests() {
+        List<Request> requests = requestService.populateRequestsFromDB();
+        if(requests.isEmpty()){
+            return new ResponseEntity<List<Request>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
+        }
+        return new ResponseEntity<List<Request>>(requests, HttpStatus.OK);
+    }
 
     //-------------------Retrieve Single Request--------------------------------------------------------
 

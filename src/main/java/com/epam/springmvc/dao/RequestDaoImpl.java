@@ -60,7 +60,10 @@ public class RequestDaoImpl implements RequestDao {
 			Request request = new Request();
 			request.setId(rs.getInt("id"));
 			request.setRequestor(rs.getString("requestor"));
+			request.setDescription(rs.getString("description"));
 			request.setEmail(rs.getString("email"));
+			request.setAssignee(rs.getString("assignee"));
+			request.setStatus(rs.getString("status"));
 			return request;
 		}
 	}

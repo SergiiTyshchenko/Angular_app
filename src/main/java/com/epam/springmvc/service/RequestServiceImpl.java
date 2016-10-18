@@ -5,13 +5,18 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
+import com.epam.springmvc.dao.RequestDao;
 import com.epam.springmvc.model.Request;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service("requestService")
 @Transactional
 public class RequestServiceImpl implements RequestService {
+
+    @Autowired
+    RequestDao requestDao;
 
     private static final AtomicLong counter = new AtomicLong();
 
@@ -80,5 +85,11 @@ public class RequestServiceImpl implements RequestService {
         requests.add(new Request(counter.incrementAndGet(),"Dummy", "Summy task", "dummy_request@gmail.com", "whatever new", ""));
         return requests;
     }
+
+    public List<Request> populateRequestsFromDB(){
+        List<Request> requests = requestDao.findAll();
+        return requests;
+    }
+
 
 }

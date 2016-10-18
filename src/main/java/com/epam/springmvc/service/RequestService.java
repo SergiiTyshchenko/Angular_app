@@ -23,4 +23,6 @@ public interface RequestService {
 
     public boolean isRequestExist(Request request);
 
+    List<Request> populateRequestsFromDB();
+
 }

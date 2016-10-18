@@ -21,7 +21,7 @@ public class DBWelcomePageController {
 	@Autowired
 	RequestDao requestDao;
 	
-	@RequestMapping(value = "/DB", method = RequestMethod.GET)
+	@RequestMapping(value = "/DB/", method = RequestMethod.GET)
 	public String welcome(Model model) {
 
 		logger.debug("epam_sergii");
