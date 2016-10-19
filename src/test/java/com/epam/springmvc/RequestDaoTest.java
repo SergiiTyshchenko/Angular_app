@@ -13,6 +13,8 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
+import java.util.List;
+
 public class RequestDaoTest {
 
     private EmbeddedDatabase db;
@@ -34,13 +36,13 @@ public class RequestDaoTest {
     	NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(db);
     	RequestDaoImpl requestDao = new RequestDaoImpl();
 		requestDao.setNamedParameterJdbcTemplate(template);
-    	
-    	Request request = requestDao.findByName("Sergii");
+
+		List<Request> request = requestDao.findByName("Sergii");
   
     	Assert.assertNotNull(request);
-    	Assert.assertEquals(1, request.getId());
-    	Assert.assertEquals("Sergii", request.getRequestor());
-    	Assert.assertEquals("Open", request.getStatus());
+    	Assert.assertEquals(1, request.get(0).getId());
+    	Assert.assertEquals("Sergii", request.get(0).getRequestor());
+    	Assert.assertEquals("Open", request.get(0).getStatus());
 
     }
 

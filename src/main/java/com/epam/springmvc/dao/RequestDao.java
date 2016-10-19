@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface RequestDao {
 
-	Request findByName(String requestor);
+	List<Request> findByName(String requestor);
 	
 	List<Request> findAll();
 

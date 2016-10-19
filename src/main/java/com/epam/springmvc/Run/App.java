@@ -14,7 +14,7 @@ public class App
                 new ClassPathXmlApplicationContext("hello-dispatcher-servlet.xml");
 
         MySQLRequestDao mySQLRequestDao= (MySQLRequestDao) context.getBean("mysqlrequestDao");
-        Request request = new Request(1, "Sergii", "teыt mysql", "","","",1);
+        Request request = new Request(1, "Sergii", "test mysql", "","","",1);
         mySQLRequestDao.insert(request);
 
         Request request1 = mySQLRequestDao.findByRequestId(1);

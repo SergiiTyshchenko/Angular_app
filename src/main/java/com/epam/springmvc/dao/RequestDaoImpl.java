@@ -23,14 +23,14 @@ public class RequestDaoImpl implements RequestDao {
 	}
 	
 	@Override
-	public Request findByName(String requestor) {
+	public List<Request> findByName(String requestor) {
 		
 		Map<String, Object> params = new HashMap<String, Object>();
         params.put("requestor", requestor);
         
 		String sql = "SELECT * FROM requests WHERE requestor=:requestor";
 
-		Request requests = namedParameterJdbcTemplate.queryForObject(
+		List<Request> requests = namedParameterJdbcTemplate.query(
                     sql,
                     params,
                     new RequestMapper());
