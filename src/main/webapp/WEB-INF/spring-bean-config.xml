@@ -10,7 +10,11 @@
     <bean id="requestDao" class="com.epam.springmvc.dao.RequestDaoImpl" >
 		<property name="namedParameterJdbcTemplate" ref="jdbcTemplate" />
 	</bean>
-	
+
+	<bean id="mysqlrequestDao" class="com.epam.springmvc.dao.MySQLRequestDao" >
+		<property name="namedParameterJdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate" >
 	    <!-- 
 		<property name="dataSource" ref="dataSource" />
@@ -38,7 +42,24 @@
 			</list>
 		</property>
 	</bean>
-	
+
+<!--	<bean depends-on="dataSource"
+		  class="org.springframework.beans.factory.config.MethodInvokingBean">
+		<property name="targetClass" value="org.springframework.jdbc.datasource.DriverManagerDataSource" />
+		<property name="targetMethod" value="main" />
+		<property name="arguments">
+			<list>
+				<value>driverClassName</value>
+				<value>com.mysql.jdbc.Driver</value>
+				<value>url</value>
+				<value>jdbc:mysql://localhost:3306/world</value>
+				<value>username</value>
+				<value>root</value>
+				<value>password</value>
+				<value>root</value>
+			</list>
+		</property>
+	</bean>-->
 	<!-- 
 	<bean id="dbcpDataSource" class="org.apache.commons.dbcp2.BasicDataSource"
 		destroy-method="close">
