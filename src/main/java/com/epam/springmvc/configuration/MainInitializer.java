@@ -10,13 +10,13 @@ public class MainInitializer extends AbstractAnnotationConfigDispatcherServletIn
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        //return new Class[] { MainConfiguration.class };
-        return new Class[] { SpringRootConfiguration.class };
+        return new Class[] { MainConfiguration.class };
+        //return new Class[] { SpringRootConfiguration.class };
     }
 
     @Override
-    //protected Class<?>[] getServletConfigClasses() {return null;}
-    protected Class<?>[] getServletConfigClasses() {return new Class[] { MainConfiguration.class };}
+    protected Class<?>[] getServletConfigClasses() {return null;}
+    //protected Class<?>[] getServletConfigClasses() {return new Class[] { MainConfiguration.class };}
 
     @Override
     protected String[] getServletMappings() {
