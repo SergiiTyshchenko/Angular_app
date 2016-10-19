@@ -95,6 +95,15 @@
                 </div>
 
                 <div class="row">
+                    <div class="form-group col-md-12">
+                        <label class="col-md-2 control-lable" for="status">Priority</label>
+                        <div class="col-md-7">
+                            <input type="text" ng-model="ctrl.request.priority" id="priority" class="form-control input-sm" placeholder="Enter priority. [This field is validation free]"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
                     <div class="form-actions floatRight">
                         <input type="submit"  value="{{!ctrl.request.id ? 'Add' : 'Update'}}" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
                         <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Reset Form</button>
@@ -116,6 +125,7 @@
                     <th>Email</th>
                     <th>Assignee</th>
                     <th>Status</th>
+                    <th>Priority</th>
                     <th width="20%"></th>
                 </tr>
                 </thead>
@@ -127,6 +137,7 @@
                     <td><span ng-bind="u.email"></span></td>
                      <td><span ng-bind="u.assignee"></span></td>
                      <td><span ng-bind="u.status"></span></td>
+                      <td><span ng-bind="u.priority"></span></td>
                     <td>
                         <button type="button" ng-click="ctrl.edit(u.id)" class="btn btn-success custom-width">Edit</button>  <button type="button" ng-click="ctrl.remove(u.id)" class="btn btn-danger custom-width">Remove</button>
                     </td>

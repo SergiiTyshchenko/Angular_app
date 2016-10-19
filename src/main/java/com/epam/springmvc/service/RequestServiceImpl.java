@@ -81,9 +81,9 @@ public class RequestServiceImpl implements RequestService {
 
     private static List<Request> populateDummyRequests(){
         List<Request> requests = new ArrayList<Request>();
-        requests.add(new Request(counter.incrementAndGet(),"Sergii", "Create Jenkins unit test job", "sergantty@gmai.com", "Stas", ""));
-        requests.add(new Request(counter.incrementAndGet(),"Stas", "Introduce Ansible usage", "kronverk@hotmail.com", "Sergii", ""));
-        requests.add(new Request(counter.incrementAndGet(),"Dummy", "Summy task", "dummy_request@gmail.com", "whatever new", ""));
+        requests.add(new Request(counter.incrementAndGet(),"Sergii", "Create Jenkins unit test job", "sergantty@gmai.com", "Stas", "", 1));
+        requests.add(new Request(counter.incrementAndGet(),"Stas", "Introduce Ansible usage", "kronverk@hotmail.com", "Sergii", "", 2));
+        requests.add(new Request(counter.incrementAndGet(),"Dummy", "Summy task", "dummy_request@gmail.com", "whatever new", "", 3));
         return requests;
     }
 

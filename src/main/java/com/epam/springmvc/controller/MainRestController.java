@@ -97,6 +97,7 @@ public class MainRestController {
         currentRequest.setEmail(request.getEmail());
         currentRequest.setAssignee(request.getAssignee());
         currentRequest.setStatus(request.getStatus());
+        currentRequest.setPriority(request.getPriority());
 
         requestService.updateRequest(currentRequest);
         return new ResponseEntity<Request>(currentRequest, HttpStatus.OK);

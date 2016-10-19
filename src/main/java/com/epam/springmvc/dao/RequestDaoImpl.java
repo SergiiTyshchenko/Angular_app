@@ -64,6 +64,7 @@ public class RequestDaoImpl implements RequestDao {
 			request.setEmail(rs.getString("email"));
 			request.setAssignee(rs.getString("assignee"));
 			request.setStatus(rs.getString("status"));
+			request.setPriority(rs.getInt("priority"));
 			return request;
 		}
 	}

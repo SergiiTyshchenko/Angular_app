@@ -14,17 +14,20 @@ public class Request {
 
     private String status;
 
+    private Integer priority;
+
     public Request(){
         id=0;
     }
 
-    public Request(long id, String requestor, String description, String email, String assignee, String status){
+    public Request(long id, String requestor, String description, String email, String assignee, String status, Integer priority){
         this.id = id;
         this.requestor = requestor;
         this.description = description;
         this.email = email;
         this.assignee = assignee;
         this.status = status;
+        this.priority = priority;
     }
 
     public long getId() {
@@ -65,6 +68,13 @@ public class Request {
 
     public void setStatus(String status) { this.status = status; }
 
+    public Integer getPriority() {
+        return priority;
+    }
+
+    public void setPriority(Integer priority) {
+        this.priority = priority;
+    }
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -90,7 +100,8 @@ public class Request {
     @Override
     public String toString() {
         return "Request [id=" + id + ", requestor=" + requestor + ", description=" + description
-                + ", email=" + email + "]";
+                + ", email=" + email + ", assignee=" + assignee + ", status=" + status
+                + ", priority=" + priority + "]";
     }
 
 

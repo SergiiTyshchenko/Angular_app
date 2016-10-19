@@ -6,5 +6,6 @@ CREATE TABLE requests (
   description VARCHAR(30),
   email  VARCHAR(50),
   assignee VARCHAR(30),
-  status VARCHAR(30)
+  status VARCHAR(30),
+  priority INTEGER
 );

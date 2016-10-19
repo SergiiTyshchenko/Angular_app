@@ -30,14 +30,6 @@ public class MainConfiguration extends WebMvcConfigurerAdapter{
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
     }
 
-/*    @Bean
-    public InternalResourceViewResolver viewResolver() {
-        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setViewClass(JstlView.class);
-        viewResolver.setPrefix("/WEB-INF/views/jsp/");
-        viewResolver.setSuffix(".jsp");
-        return viewResolver;
-    }*/
 }
 
 

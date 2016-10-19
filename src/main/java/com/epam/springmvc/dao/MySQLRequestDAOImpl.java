@@ -27,7 +27,7 @@ public class MySQLRequestDAOImpl implements MySQLRequestDao {
 	public void insert(Request request){
 
 		String sql = "INSERT INTO REQUESTS " +
-				"(ID, REQUESTOR, DESCRIPTION, EMAIL, ASSIGNEE, STATUS) VALUES (?, ?, ?, ?, ?, ?)";
+				"(ID, REQUESTOR, DESCRIPTION, EMAIL, ASSIGNEE, STATUS, PRIORITY) VALUES (?, ?, ?, ?, ?, ?, ?)";
 		Connection conn = null;
 
 		try {
@@ -71,7 +71,8 @@ public class MySQLRequestDAOImpl implements MySQLRequestDao {
 						rs.getString("DESCRIPTION"),
 						rs.getString("EMAIL"),
 						rs.getString("ASSIGNEE"),
-						rs.getString("STATUS")
+						rs.getString("STATUS"),
+						rs.getInt("PRIORITY")
 				);
 			}
 			rs.close();
