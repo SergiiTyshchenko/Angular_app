@@ -10,7 +10,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 
-@ComponentScan({ "com.epam" })
+@ComponentScan({ "com.epam.springmvc" })
 @Configuration
 public class SpringRootConfiguration {
 
@@ -29,7 +29,7 @@ public class SpringRootConfiguration {
 		DatabaseManagerSwing.main(new String[] { "--url", "jdbc:hsqldb:mem:testdb", "--user", "sa", "--password", "" });
 
 		//h2
-		//DatabaseManagerSwing.main(new String[] { "--url", "jdbc:h2:mem:testdb", "--user", "sa", "--password", "" });
+//		DatabaseManagerSwing.main(new String[] { "--url", "jdbc:h2:mem:testdb", "--user", "sa", "--password", "" });
 
 	}
 	

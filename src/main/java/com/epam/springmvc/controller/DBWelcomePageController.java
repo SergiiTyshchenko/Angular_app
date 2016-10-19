@@ -26,7 +26,7 @@ public class DBWelcomePageController {
 
 		logger.debug("epam_sergii");
 
-		//Request requests = userDao.findByName("epam_sergii");
+		Request request = requestDao.findByName("Sergii");
 		
 		List<Request> requests = requestDao.findAll();
 

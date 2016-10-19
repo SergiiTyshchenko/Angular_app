@@ -16,9 +16,7 @@ public class MainInitializer extends AbstractAnnotationConfigDispatcherServletIn
 
     @Override
     //protected Class<?>[] getServletConfigClasses() {return null;}
-    protected Class<?>[] getServletConfigClasses() {
-        return new Class[] { MainConfiguration.class };
-    }
+    protected Class<?>[] getServletConfigClasses() {return new Class[] { MainConfiguration.class };}
 
     @Override
     protected String[] getServletMappings() {
