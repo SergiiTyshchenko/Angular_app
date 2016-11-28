@@ -1,6 +1,6 @@
 	def environmentDetails () {
 
-		def buildEnv = load 'new_strategy/vars/systemEnvironment.groovy'		
+		def buildEnv = load 'jenkins/vars/systemEnvironment.groovy'		
 		
 		withEnv(buildEnv.defaultEnvironment()) {
 					

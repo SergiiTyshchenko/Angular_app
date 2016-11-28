@@ -1,14 +1,15 @@
 timestamps {
-	
+	node('master') {
 	wrap([$class: 'AnsiColorBuildWrapper', colorMapName: 'xterm']) {
 		
 		println "====================================Pipeline STARTED=============================================="				
 		def jobName = JOB_NAME.split('/')
+		println  """ 
 		Business Unit:
 		Environment Profile: 
 		"""
-		def projectVarDir = "pipeline/vars"
-		def projectClassDir = "pipeline/src/com/sergii"
+		def projectVarDir = "jenkins/vars"
+		def projectClassDir = "jenkins/src/com/sergii"
 		def WORKSPACE = pwd()					
 		def Step_name
 				
@@ -59,7 +60,7 @@ timestamps {
 		
 		Step_name = "Start"								
         stage "${Step_name}"
-			def Log_parser = "pipeline/scripts/console_parsing_rules"	
+			def Log_parser = "jenkins/scripts/console_parsing_rules"	
 		    def buildEnv = load "${projectVarDir}/systemEnvironment.groovy"	
 			try {
 				withEnv(buildEnv.defaultEnvironment()) {
@@ -85,8 +86,18 @@ timestamps {
 		}
 								
 		println "Pipeline FINISHED"
+			
+	}
     }
 	}
-}
 
+
+def notifyFailed() {
+	  emailext (
+      subject: "JENKINS JOB FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+      body: """<p>JENKINS: FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
+        <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>""",
+      recipientProviders: [[$class: 'UpstreamComitterRecipientProvider']],
+	  to: 'sergantty@gmail.com, kronverk@hotmail.com',
+    )
 }
