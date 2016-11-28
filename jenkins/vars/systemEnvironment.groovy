@@ -10,7 +10,7 @@ def defaultEnvironment(){
 		jobType = "_CI"	
 
 	
-	def appHome = "/asw/" + Business_Unit.toLowerCase() + jobType + "/app"	
+	def appHome = "/asw/" + jobType.toLowerCase() + jobType + "/app"	
 	def javaHome
 	def antHome
 
