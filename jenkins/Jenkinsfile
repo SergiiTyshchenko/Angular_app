@@ -12,7 +12,7 @@ timestamps {
 		def projectClassDir = "jenkins/src/com/sergii"
 		def WORKSPACE = pwd()					
 		def Step_name
-				
+		def buildEnv = load "${projectVarDir}/systemEnvironment.groovy"			
 			
 		Step_name = "Checkout from VCS"
         stage "${Step_name}"						
@@ -36,10 +36,12 @@ timestamps {
 			step = load "${projectClassDir}/buildandCompile.groovy"
 			def MAVEN_COMMAND = "mvn clean install"
 			try {
+					withEnv(buildEnv.defaultEnvironment()) {
 					step.environmentDetails();
 					//step.configureForCI(MAVEN_COMMAND);
 					sh "cd ${APP_HOME}"
 					//sh MAVEN_COMMAND
+					}
 			} catch (e) {
 			    currentBuild.result = "FAILED"
 				notifyFailed()
@@ -63,7 +65,6 @@ timestamps {
 		Step_name = "Start"								
         stage "${Step_name}"
 			def Log_parser = "jenkins/scripts/console_parsing_rules"	
-		    def buildEnv = load "${projectVarDir}/systemEnvironment.groovy"	
 			try {
 				withEnv(buildEnv.defaultEnvironment()) {
 						println "***************Start Job Run*****************"	
@@ -74,7 +75,7 @@ timestamps {
 				notifyFailed()
 				throw e	
 			}	finally {
-					step([$class: 'LogParserPublisher', parsingRulesPath: "${Log_parser}", useProjectRule: false, failBuildOnError: false, unstableOnWarning: false])
+					//step([$class: 'LogParserPublisher', parsingRulesPath: "${Log_parser}", useProjectRule: false, failBuildOnError: false, unstableOnWarning: false])
 					println "Current Build result: " + currentBuild.result	
 			}
 
