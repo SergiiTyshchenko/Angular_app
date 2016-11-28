@@ -28,7 +28,7 @@
 			//sh "chmod +x /scripts/*.sh"
 			//sh "rm -rf ${WORKSPACE}/config/*"		
 			//TODO: hybris needs to be packaged and copied here			
-			sh "cd ${APP_HOME}/bin/platform"
+			sh "cd ${APP_HOME}"
 			sh "${MAVEN_COMMAND}"
 		}
 	}

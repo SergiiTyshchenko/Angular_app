@@ -34,10 +34,12 @@ timestamps {
 		Step_name = "Build and Compile"						
         stage "${Step_name}"				
 			step = load "${projectClassDir}/buildandCompile.groovy"
-			def MAVEN_COMMAND = "clean install"
+			def MAVEN_COMMAND = "mvn clean install"
 			try {
 					step.environmentDetails();
-					step.configureForCI(MAVEN_COMMAND);
+					//step.configureForCI(MAVEN_COMMAND);
+					sh "cd ${APP_HOME}"
+					//sh MAVEN_COMMAND
 			} catch (e) {
 			    currentBuild.result = "FAILED"
 				notifyFailed()
@@ -49,7 +51,7 @@ timestamps {
 		Step_name = "Unit Tests"	
 		stage "${Step_name}"					
 			try {	          
-				sh 'mvn tests'
+				//sh 'mvn tests'
 			} catch (e) {
 			    currentBuild.result = "FAILED"
 				notifyFailed()
@@ -65,7 +67,7 @@ timestamps {
 			try {
 				withEnv(buildEnv.defaultEnvironment()) {
 						println "***************Start Job Run*****************"	
-						sh "${APP_HOME}/startup.sh"
+						//sh "${APP_HOME}/startup.sh"
 				}
 			} catch (e) {
 			    currentBuild.result = "FAILED"

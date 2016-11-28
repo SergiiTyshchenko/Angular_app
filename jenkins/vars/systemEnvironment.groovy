@@ -24,7 +24,7 @@ def defaultEnvironment(){
 	
 
 	["PATH=${env.PATH}:${javaHome}/bin:${antHome}/bin:${appHome}:${SCRIPTS_DIR}:${app_DEPLOY}:${CATALINA_HOME}",
-	"JAVA_HOME=${javaHome}", "ANT_HOME=${antHome}", "ANT_OPTS=-Xms1024m -Xmx2048M -XX:PermSize=600m -XX:MaxPermSize=1024m", "app_HOME=${appHome}",
+	"JAVA_HOME=${javaHome}", "ANT_HOME=${antHome}", "ANT_OPTS=-Xms1024m -Xmx2048M -XX:PermSize=600m -XX:MaxPermSize=1024m", "APP_HOME=${appHome}",
 	"SCRIPTS_DIR=${SCRIPTS_DIR}", "CATALINA_HOME=${CATALINA_HOME}", "app_DEPLOY=${app_DEPLOY}"]
 }
 
