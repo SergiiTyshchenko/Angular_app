@@ -10,7 +10,7 @@ def defaultEnvironment(){
 		jobType = "_CI"	
 
 	
-	def appHome = "/asw/" + jobType.toLowerCase() + jobType + "/app"	
+	def appHome = "/opt/apache-tomcat-8.5.5/webapps/AreaDTool"	
 	def javaHome
 	def antHome
 

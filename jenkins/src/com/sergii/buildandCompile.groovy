@@ -20,7 +20,7 @@
 
 	def configureForCI (MAVEN_COMMAND) {
 
-		def buildEnv = load 'new_strategy/vars/systemEnvironment.groovy'		
+		def buildEnv = load 'jenkins/vars/systemEnvironment.groovy'		
 		
 		withEnv(buildEnv.defaultEnvironment()) {
 			
@@ -28,7 +28,7 @@
 			//sh "chmod +x /scripts/*.sh"
 			//sh "rm -rf ${WORKSPACE}/config/*"		
 			//TODO: hybris needs to be packaged and copied here			
-			//sh "cd ${APP_HOME}/bin/platform"
+			sh "cd ${APP_HOME}/bin/platform"
 			sh "${MAVEN_COMMAND}"
 		}
 	}
