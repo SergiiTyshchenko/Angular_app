@@ -1,0 +1,92 @@
+timestamps {
+	
+	wrap([$class: 'AnsiColorBuildWrapper', colorMapName: 'xterm']) {
+		
+		println "====================================Pipeline STARTED=============================================="				
+		def jobName = JOB_NAME.split('/')
+		Business Unit:
+		Environment Profile: 
+		"""
+		def projectVarDir = "pipeline/vars"
+		def projectClassDir = "pipeline/src/com/sergii"
+		def WORKSPACE = pwd()					
+		def Step_name
+				
+			
+		Step_name = "Checkout from VCS"
+        stage "${Step_name}"						
+			def gitCredentials = "SergiiTyshchenko"
+			def gitProjectURL = "https://github.com/SergiiTyshchenko/Angular_app.git"			
+			try {
+				git branch: 'master', credentialsId: "${gitCredentials}", url: "${gitProjectURL}"							
+				step = load "${projectClassDir}/checkoutFromSCM.groovy"
+				step.checkoutFromRepository(gitCredentials, gitProjectURL);
+			} catch (e) {
+			    currentBuild.result = "FAILED"
+				notifyFailed()
+				throw e	
+			} finally {
+				println "Current Build result: " + currentBuild.result
+			}
+		
+				
+		Step_name = "Build and Compile"						
+        stage "${Step_name}"				
+			step = load "${projectClassDir}/buildandCompile.groovy"
+			def MAVEN_COMMAND = "clean install"
+			try {
+					step.environmentDetails();
+					step.configureForCI(MAVEN_COMMAND);
+			} catch (e) {
+			    currentBuild.result = "FAILED"
+				notifyFailed()
+				throw e	
+			} finally {
+				println "Current Build result: " + currentBuild.result
+			}
+		
+		Step_name = "Unit Tests"	
+		stage "${Step_name}"					
+			try {	          
+				sh 'mvn tests'
+			} catch (e) {
+			    currentBuild.result = "FAILED"
+				notifyFailed()
+				throw e	
+			} finally {
+				println "Current Build result: " + currentBuild.result
+			}
+		
+		Step_name = "Start"								
+        stage "${Step_name}"
+			def Log_parser = "pipeline/scripts/console_parsing_rules"	
+		    def buildEnv = load "${projectVarDir}/systemEnvironment.groovy"	
+			try {
+				withEnv(buildEnv.defaultEnvironment()) {
+						println "***************Start Job Run*****************"	
+						sh "${APP_HOME}/startup.sh"
+				}
+			} catch (e) {
+			    currentBuild.result = "FAILED"
+				notifyFailed()
+				throw e	
+			}	finally {
+					step([$class: 'LogParserPublisher', parsingRulesPath: "${Log_parser}", useProjectRule: false, failBuildOnError: false, unstableOnWarning: false])
+					println "Current Build result: " + currentBuild.result	
+			}
+
+		def buildStatus
+		if (currentBuild.result == "FAILURE"){
+			buildStatus = "danger" //warning or any else # color
+		}
+		else {
+			currentBuild.result = "SUCCESS"
+			buildStatus = "good"
+		}
+								
+		println "Pipeline FINISHED"
+    }
+	}
+}
+
+}
